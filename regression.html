@@ -423,7 +423,7 @@ Overall abuse   SI TOTAL
             const n = X.length;
             const p = X[0].length - (X[0][0] === 1 ? 1 : 0);
             const y_mean = math.mean(y_mat);
-            const SSres = math.sum(math.square(residuals));
+            const SSres = math.sum(math.map(residuals, math.square));
             const SStot = math.sum(math.map(y_mat, val => Math.pow(val - y_mean, 2)));
             const SSreg = SStot - SSres;
 
@@ -613,4 +613,5 @@ Overall abuse   SI TOTAL
         });
     </script>
 </body>
+
 </html>
